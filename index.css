@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+
+
+/* These are css variables that you can use with the var() css function */
+:root {
+    --background: rgba(0, 182, 214, 0.85);
+    --color1:rgb(240, 248, 255);
+    --colormenu :rgba(0, 182, 214, 0.397);
+    --colorlinks:rgb(255, 255, 0);
+  }
+
+
+* {
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
+body {
+	margin: 20px;
+  background-color: rgba(0, 0, 0, 0.993);
+}
+
+.Container{
+
+  
+    Display: flex ;
+    margin:auto ;
+
+    width: 90vw;
+    height:100vh ;
+    box-shadow: 5px 2px 15px 11px rgba(2, 194, 253, 0.479);
+
+
+
+    /* set the image for this */
+    background-image: url('images/globe.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-origin: content-box;
+  
+    /*give this a  border size etc */
+    border-style:solid ;
+    border-width: 1px;
+    border-radius: 10px ;
+    border-color: rgba(2, 194, 253, 0.479);
+    
+
+}
+
+
+
+/* navigation styles start here */
+
+/* decribe the header  within the container  
+Because the header is inside the container
+we have to address this  via the container */
+
+.Container nav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95vw;
+    height: 10vh ;
+    background-color: #eb830d;
+    border-radius: 5px;
+  }
+
+
+/* styyle for logo */
+.logo{
+  
+  color: var(--color1);
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+}
+
+/* deal with links */
+.nav-links{
+
+  display:flex; /* will display in row */
+  justify-content: space-around;
+  width:50vw;
+
+}
+
+/* get rid of the dots in the li tag */
+.nav-links li{
+  list-style: none;
+}
+
+/* deal with anchors */
+.nav-links a{
+  text-decoration: none;
+  color:var(--colorlinks) ;
+  
+}
+
+.nav-links a:hover{
+  color:rgba(250, 250, 249, 0.993);
+  font-weight: bold;
+
+}
+
+/* we only want the bugrger to show on mobile view */
+
+.burger{
+
+  display:none;
+  cursor: pointer;
+  
+}
+
+/* divs are empty so we set a backround color for the divs themselves */
+.burger div{
+  width:25px ;
+  height: 3px; 
+  background-color:var(--color1) ;
+  margin:5px
+
+
+}
+
+
+
+
+
+/*mobile breakpoints */
+@media screen and (max-width:1024px)
+{
+  .nav-links{
+
+    width:60vw;
+  
+  }
+  
+
+}
+
+
+@media screen and (max-width:768px)
+{
+  body{
+    overflow-y: hidden;
+  }
+  
+
+  .nav-links{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position:absolute ;
+    height: 30vh;
+    top:13vh;
+    right: 30px;
+    
+    width:50vw;
+    background-color:var(--colormenu);
+    /*this moves this off the screen untill activated by the burger*/
+    
+    
+    /*instead of sudden dissappperance we want this to  ease in and out
+    so we apply a transistion to this of 0.5s ease in */
+    transform:translateY(-120%) ;
+    transition:transform 0.7s ease-in ;
+    opacity:0;
+    border-radius: 10px;
+  }
+
+
+
+ /*psuedo class that we use when we click the hambuger */
+  .nav-active{
+    transform:translateY(0%) ;
+    opacity:1;
+  }
+ 
+
+  .burger{
+    display:block;
+  }
+ 
+  
+
+
+}
